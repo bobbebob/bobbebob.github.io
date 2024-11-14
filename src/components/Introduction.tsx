@@ -8,18 +8,16 @@ import ProfilePicture from "./ProfilePicture.tsx";
 import bob from "../assets/Bob.png";
 
 const IntroductionWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
 `;
 
 const TitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+  grid-column: 1 / -1;
+`;
 
-  h2{
-    margin-bottom: 2rem;
-  }
-
+const TextContainer = styled.div`
   p {
     margin-bottom: 1rem;
     max-width: 45ch;
@@ -55,6 +53,8 @@ const Introduction = () => {
       <TitleContainer>
         <h1>Hello I'm Bob</h1>
         <h2>a full stack web developer</h2>
+      </TitleContainer>
+      <TextContainer>
         <p>
           I like to write code, prepare my green tea at 80°C and make
           illustrations on the side.
@@ -85,7 +85,7 @@ const Introduction = () => {
             alt="instagram"
           />
         </SocialIconsContainer>
-      </TitleContainer>
+      </TextContainer>
       <ProfilePicture src={bob} alt="profile picture" />
     </IntroductionWrapper>
   );
