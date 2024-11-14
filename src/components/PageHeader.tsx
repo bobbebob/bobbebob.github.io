@@ -5,10 +5,10 @@ const HeaderWrapper = styled.div`
   display: flex;
   position: sticky;
   top: 0;
-  width: 850px;
+  max-width: 850px;
   margin: 0 auto;
   background: linear-gradient(to bottom, #030712 50%, rgba(3, 7, 18, 0.9) 100%);
-  padding: 1.875rem 0;
+  padding: 1.875rem;
   color: #ffffff;
   z-index: 10; /* Ensure it stays above other content */
   box-shadow: 0px 15px 15px -20px #489167;

@@ -1,16 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import { keyframes } from 'styled-components';
 
 interface ProfilePictureProps {
   src: string;
   alt: string;
 }
 
+const rotateSlowly = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
 const PictureWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: auto;
+  animation: ${rotateSlowly} 45s linear infinite;
 `;
 
 const PictureBorder = styled.div`
@@ -36,7 +47,6 @@ const Ring = styled.div<RingProps>`
   z-index: ${({ size }) => 30 - size * 2};
   box-shadow: 0 0 20px 0px #489167;
 
-  /* Media query adjustments for different screen sizes */
   @media (min-width: 768px) {
     width: ${({ size }) => size * 0.9}rem;
     height: ${({ size }) => size * 0.9}rem;
