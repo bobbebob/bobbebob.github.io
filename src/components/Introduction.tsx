@@ -97,17 +97,17 @@ const Introduction = () => {
         <TextDivider />
         <SocialIconsContainer>
           <SocialsIcon
-            href="https://www.linkedin.com/in/bobvegter/"
+            href="https://www.linkedin.com/in/bob-vegter-383877143/"
             src={linkedin}
             alt="linkedin"
           />
           <SocialsIcon
-            href="https://github.com/bobvegter"
+            href="https://github.com/bobbebob"
             src={github}
             alt="github"
           />
           <SocialsIcon
-            href="https://www.instagram.com/bobvegter/"
+            href="https://www.instagram.com/bob_rechtop/"
             src={instagram}
             alt="instagram"
           />
