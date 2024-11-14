@@ -26,15 +26,26 @@ interface RingProps {
 
 const Ring = styled.div<RingProps>`
   position: relative;
-  width: ${(props) => props.size}rem;
-  height: ${(props) => props.size}rem;
+  width: ${({ size }) => size * 0.65}rem;
+  height: ${({ size }) => size * 0.65}rem;
   background-color: #030712;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: ${(props) => 30 - props.size * 2};
+  z-index: ${({ size }) => 30 - size * 2};
   box-shadow: 0 0 20px 0px #489167;
+
+  /* Media query adjustments for different screen sizes */
+  @media (min-width: 768px) {
+    width: ${({ size }) => size * 0.9}rem;
+    height: ${({ size }) => size * 0.9}rem;
+  }
+
+  @media (min-width: 1024px) {
+    width: ${({ size }) => size}rem;
+    height: ${({ size }) => size}rem;
+  }
 `;
 
 const Picture = styled.img`

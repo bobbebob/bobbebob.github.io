@@ -15,21 +15,17 @@ const IntroductionWrapper = styled.div`
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  h1 {
-    font-family: "Poetsen One", sans-serif;
-    color: #ffffff;
-    font-size: 4rem;
-  }
-  h2 {
-    font-family: "Poetsen One", sans-serif;
-    color: #489167;
-    font-size: 1.5rem;
+
+  h2{
     margin-bottom: 2rem;
   }
+
   p {
-    color: #ffffff;
     margin-bottom: 1rem;
     max-width: 45ch;
+    align-items: center;
+    display: flex;
+    gap: 0.5ch;
   }
   a {
     color: #489167;
@@ -53,31 +49,6 @@ const SocialIconsContainer = styled.div`
   gap: 1.5rem;
 `;
 
-const PictureBorder = styled.div<{ size: number }>`
-  position: relative;
-  background-color: #030712;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: ${(props) => props.size}rem;
-  width: ${(props) => props.size}rem;
-  z-index: ${(props) => Math.floor(100 / props.size)};
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #489167;
-    border-radius: 50%;
-    filter: blur(10px);
-    z-index: -1;
-  }
-`;
-
 const Introduction = () => {
   return (
     <IntroductionWrapper>
@@ -89,7 +60,9 @@ const Introduction = () => {
           illustrations on the side.
         </p>
         <TextDivider />
-        <p>The Netherlands</p>
+        <p>
+          <span className="material-icons">location_on</span>The Netherlands
+        </p>
         <TextDivider />
         <p>
           Download my <a href="/resume.pdf">resume</a>

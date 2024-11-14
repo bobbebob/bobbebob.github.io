@@ -15,7 +15,7 @@ const HeaderWrapper = styled.div`
     bottom: 10px; // Adjust how far below the header the blur extends
     left: 50%;
     transform: translateX(-50%);
-    width: 85%; // Adjust how wide the blur is
+    width: 75%; // Adjust how wide the blur is
     height: 40px;
     background: #489167;
     filter: blur(15px); // Adjust blur intensity
@@ -40,11 +40,10 @@ const NavLink = styled.a`
   opacity: 0.5;
   text-decoration: none;
   font-weight: bold;
-  transition: opacity 0.3s ease, transform 0.2s ease-out;
+  transition: opacity 0.3s ease;
 
   &:hover {
     opacity: 1;
-    transform: translateY(-1px);
   }
 `;
 

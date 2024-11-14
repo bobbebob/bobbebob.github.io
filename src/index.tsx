@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import PageHeader from "./components/PageHeader.tsx";
-
 import "./global.css";
 import PageWrapper from "./components/PageWrapper.tsx";
 import Introduction from "./components/Introduction.tsx";

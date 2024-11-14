@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 0 2.5rem;
   width: 100%;
+  overflow-x: hidden;
 `;
 
 interface PageWrapperProps {
