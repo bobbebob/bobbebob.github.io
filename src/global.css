@@ -12,6 +12,7 @@ body {
 }
 
 :root {
+  --fluid-8-10: clamp(0.5rem, 0.4082rem + 0.4082vw, 0.625rem);
   --fluid-10-14: clamp(0.625rem, 0.4413rem + 0.8163vw, 0.875rem);
   --fluid-14-18: clamp(0.875rem, 0.6913rem + 0.8163vw, 1.125rem);
   --fluid-18-32: clamp(1.125rem, 0.4821rem + 2.8571vw, 2rem);
@@ -37,6 +38,11 @@ p {
 }
 
 a {
+  font-family: "Noto Sans", sans-serif;
+  font-size: var(--fluid-14-18);
+}
+
+button {
   font-family: "Noto Sans", sans-serif;
   font-size: var(--fluid-14-18);
 }

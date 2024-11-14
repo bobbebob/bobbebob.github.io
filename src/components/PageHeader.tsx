@@ -3,25 +3,15 @@ import styled from "styled-components";
 
 const HeaderWrapper = styled.div`
   display: flex;
-  position: relative;
-  background-color: #030712;
+  position: sticky;
+  top: 0;
+  width: 850px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #030712 50%, rgba(3, 7, 18, 0.9) 100%);
   padding: 1.875rem 0;
-  margin-bottom: 3.5rem;
   color: #ffffff;
-
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: 10px; // Adjust how far below the header the blur extends
-    left: 50%;
-    transform: translateX(-50%);
-    width: 75%; // Adjust how wide the blur is
-    height: 40px;
-    background: #489167;
-    filter: blur(15px); // Adjust blur intensity
-    opacity: 1; // Adjust visibility
-    z-index: -1;
-  }
+  z-index: 10; /* Ensure it stays above other content */
+  box-shadow: 0px 15px 15px -20px #489167;
 `;
 
 const NavList = styled.ul`

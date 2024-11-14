@@ -4,6 +4,8 @@ import PageHeader from "./components/PageHeader.tsx";
 import "./global.css";
 import PageWrapper from "./components/PageWrapper.tsx";
 import Introduction from "./components/Introduction.tsx";
+import SectionDivider from "./components/SectionDivider.tsx";
+import Experience from "./components/Experience.tsx";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
@@ -13,9 +15,12 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
+    <PageHeader />
     <PageWrapper>
-      <PageHeader />
       <Introduction />
+      <SectionDivider/>
+      <Experience />
+      <SectionDivider/>
     </PageWrapper>
   </React.StrictMode>
 );

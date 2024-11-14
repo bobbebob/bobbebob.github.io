@@ -11,6 +11,8 @@ const IntroductionWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.2rem;
+  margin-bottom: 4rem;
+  margin-top: 1rem;
 `;
 
 const TitleContainer = styled.div`
@@ -18,6 +20,8 @@ const TitleContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
+  margin-top: 1vh;
+
   p {
     margin-bottom: 1rem;
     max-width: 45ch;
