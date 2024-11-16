@@ -1,10 +1,14 @@
+import bcsLogo from "../assets/BCS_logo.svg";
+import simacLogo from "../assets/Simac_logo.svg";
+import React from "react";
+
 export interface WorkExperience {
   startDate: string;
   endDate: string;
   company: string;
   position: string;
-  workExperience: string[];
-  logo?: React.ReactNode;
+  workExperience: React.ReactNode[];
+  logo?: string;
 }
 
 export const workExperience: WorkExperience[] = [
@@ -14,13 +18,24 @@ export const workExperience: WorkExperience[] = [
     company: "Basis Cloud Solutions",
     position: "Full Stack Developer",
     workExperience: [
-      "Built features for 'Anugal', a GRC app using React, TypeScript, and MongoDB",
+      <>
+        Built features for{" "}
+        <a
+          href="https://flatcubesolutions.com/#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Anugal
+        </a>
+        , a GRC app using React, TypeScript, and MongoDB
+      </>,
       "Fixed a MongoDB timed deletion issue with a single-line in the model",
       "Optimized MongoDB aggregation pipelines for faster data handling",
       "Collaborated with designers to improve UX consistency across the app",
       "Suggested prototyping to address design bottlenecks, speeding up feature releases",
       "Championed accessibility practices to enhance responsiveness",
     ],
+    logo: bcsLogo,
   },
   {
     startDate: "Sept 2022",
@@ -36,5 +51,6 @@ export const workExperience: WorkExperience[] = [
       "Illustrated complex issues for team meetings, aiding visual understanding of security challenges",
       "Trained customer users on compliance protocols and ticketing processes to reinforce internal standards",
     ],
+    logo: simacLogo,
   },
 ];

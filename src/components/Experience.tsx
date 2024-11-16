@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { EXP_NAV_OPTIONS } from "../constants.ts";
 import ExperienceCard from "./ExperienceCard.tsx";
-import { workExperience } from "../data/workExperience.ts";
+import { workExperience } from "../data/workExperience.tsx";
+import { education } from "../data/education.tsx";
 
 const ExperienceWrapper = styled.div`
   display: flex;
@@ -74,9 +75,12 @@ const Experience = () => {
       </ExperienceNavBar>
       <ExperienceCardsContainer>
         {selectedTab === EXP_NAV_OPTIONS.WORK &&
-          workExperience &&
-          workExperience.map((item, index) => (
-            <ExperienceCard key={index} experience={item} />
+          workExperience.map((exp, index) => (
+            <ExperienceCard key={index} experience={exp} />
+          ))}
+        {selectedTab === EXP_NAV_OPTIONS.EDUCATION &&
+          education.map((study, index) => (
+            <ExperienceCard key={index} studies={study} />
           ))}
       </ExperienceCardsContainer>
     </ExperienceWrapper>
