@@ -1,17 +1,20 @@
 {
   "files": {
     "main.css": "/static/css/main.ea8c80a6.css",
-    "main.js": "/static/js/main.e9b7deea.js",
+    "main.js": "/static/js/main.9b220802.js",
     "static/media/Bob.png": "/static/media/Bob.c1f812fd8323da3fc647.png",
+    "static/media/Createment_logo.svg": "/static/media/Createment_logo.b74224cb789992ca5984ef386e8199e3.svg",
+    "static/media/Simac_logo.svg": "/static/media/Simac_logo.1d51c97c58887e5fdad6d20e381cfbb0.svg",
     "static/media/instagram.svg": "/static/media/instagram.bc80d74954bc8a222926ea651a66c354.svg",
     "static/media/github.svg": "/static/media/github.a79d1ce5332ccddc768d842137e2bf67.svg",
     "static/media/linkedIn.svg": "/static/media/linkedIn.fe2b1ff1775173d887fbcf9f40deb49d.svg",
     "index.html": "/index.html",
+    "static/media/BCS_logo.svg": "/static/media/BCS_logo.2cf803d5eb6d251e95bc7bfff5e0b6c0.svg",
     "main.ea8c80a6.css.map": "/static/css/main.ea8c80a6.css.map",
-    "main.e9b7deea.js.map": "/static/js/main.e9b7deea.js.map"
+    "main.9b220802.js.map": "/static/js/main.9b220802.js.map"
   },
   "entrypoints": [
     "static/css/main.ea8c80a6.css",
-    "static/js/main.e9b7deea.js"
+    "static/js/main.9b220802.js"
   ]
 }
