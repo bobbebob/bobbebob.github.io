@@ -39,13 +39,13 @@ const Ring = styled.div<RingProps>`
   position: relative;
   width: ${({ size }) => size * 0.65}rem;
   height: ${({ size }) => size * 0.65}rem;
-  background-color: #030712;
+  background-color: var(--background);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: ${({ size }) => 30 - size * 2};
-  box-shadow: 0 0 20px 0px #489167;
+  box-shadow: 0 0 20px 0px var(--text-secondary);
 
   @media (min-width: 768px) {
     width: ${({ size }) => size * 0.9}rem;

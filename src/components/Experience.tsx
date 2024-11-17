@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { EXP_NAV_OPTIONS } from "../constants.ts";
+import { EXP_NAV_OPTIONS, EXP_NAV_TYPE } from "../constants.ts";
 import ExperienceCard from "./ExperienceCard.tsx";
 import { workExperience } from "../data/workExperience.tsx";
 import { education } from "../data/education.tsx";
@@ -8,15 +8,15 @@ import { education } from "../data/education.tsx";
 const ExperienceWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.2rem;
   margin-bottom: 3rem;
 `;
 
 const ExperienceNavBar = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 0.5rem;
-  background-color: #112323;
+  padding: 0.6rem;
+  background-color: var(--background-secondary);
   border-radius: 10px;
   width: 100%;
 `;
@@ -27,18 +27,18 @@ interface NavButtonProps {
 
 const NavButton = styled.button<NavButtonProps>`
   border: none;
-  background-color: ${(props) => (props.isSelected ? "#030712" : "#112323")};
-  color: ${(props) => (props.isSelected ? "#ffffff" : "#a1a1aa")};
+  background-color: ${(props) => (props.isSelected ? "var(--background)" : "var(--background-secondary)")};
+  color: ${(props) => (props.isSelected ? "var(--text-primary)" : "#a1a1aa")};
   cursor: pointer;
   border-radius: 5px;
-  padding: 0.5rem;
+  padding: 0.6rem;
   transition: background-color 0.3s;
 
   ${(props) =>
     !props.isSelected &&
     `
       &:hover {
-        background-color: #0C191D;
+        background-color: var(--button-hover);
       }
     `}
 `;
@@ -46,15 +46,15 @@ const NavButton = styled.button<NavButtonProps>`
 const ExperienceCardsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
-  background-color: #112323;
+  padding: 0.6rem;
+  background-color: var(--background-secondary);
   border-radius: 10px;
   width: 100%;
-  gap: 0.5rem;
+  gap: 0.6rem;
 `;
 
 const Experience = () => {
-  const [selectedTab, setSelectedTab] = useState<string>(EXP_NAV_OPTIONS.WORK);
+  const [selectedTab, setSelectedTab] = useState<EXP_NAV_TYPE>(EXP_NAV_OPTIONS.WORK);
 
   return (
     <ExperienceWrapper>

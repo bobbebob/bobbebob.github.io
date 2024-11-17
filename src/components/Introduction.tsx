@@ -30,7 +30,7 @@ const TextContainer = styled.div`
     gap: 0.5ch;
   }
   a {
-    color: #489167;
+    color: var(--text-secondary);
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
@@ -38,7 +38,7 @@ const TextContainer = styled.div`
 `;
 
 const TextDivider = styled.div`
-  background: linear-gradient(to right, #489167, transparent);
+  background: linear-gradient(to right, var(--text-secondary), transparent);
   width: 105%;
   height: 2px;
   border-radius: 50%;

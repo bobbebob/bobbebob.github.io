@@ -12,15 +12,15 @@ const ExperienceCardContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 1rem;
-  background-color: #030712;
-  border-radius: 5px;
+  padding: 1.4rem;
+  background-color: var(--background);
+  border-radius: 6px;
   width: 100%;
 `;
 
 const Date = styled.p`
   span {
-    color: #a1a1aa;
+    color: var(--text-tertiary);
     font-size: var(--fluid-10-14);
   }
 `;
@@ -29,7 +29,7 @@ const Company = styled.p`
   max-width: 20ch;
   span {
     font-weight: bold;
-    color: #489167;
+    color: var(--text-secondary);
     font-size: var(--fluid-14-18);
   }
 `;
@@ -38,7 +38,7 @@ const Position = styled.p`
   margin-top: 0.5rem;
   max-width: 25ch;
   span {
-    color: #ffffff;
+    color: var(--text-primary);
     font-size: var(--fluid-14-18);
   }
 `;
@@ -61,11 +61,11 @@ const WorkExperienceList = styled.ul`
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background-color: #a1a1aa;
+    background-color: var(--text-tertiary);
   }
 
   li p {
-    color: #a1a1aa;
+    color: var(--text-tertiary);
     font-size: var(--fluid-10-14);
     max-width: 60ch;
     margin-top: 0.5rem;
@@ -74,7 +74,7 @@ const WorkExperienceList = styled.ul`
   li a {
     font-size: var(--fluid-10-14);
     font-weight: bold;
-    color: #a1a1aa;
+    color: var(--text-tertiary);
   }
 `;
 
@@ -90,13 +90,17 @@ const Logo = styled.div`
     padding: var(--fluid-18-32);
     aspect-ratio: 1;
     border-radius: 0 0 0 100%;
-    box-shadow: 0px 0px 15px #489167;
+    box-shadow: 0px 0px 15px var(--text-secondary);
   }
 
   img {
     width: var(--fluid-40-64);
     padding-left: 1rem;
     padding-bottom: 1rem;
+
+    [data-theme="light"] & {
+    filter: invert(1);
+  }
   }
 `;
 

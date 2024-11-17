@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.div<{ theme: string }>`
   display: flex;
   position: sticky;
   top: 0;
   max-width: 850px;
   margin: 0 auto;
-  background: linear-gradient(to bottom, #030712 50%, rgba(3, 7, 18, 0.9) 100%);
+   background: linear-gradient(
+    to bottom, 
+    var(--background) 50%, 
+    ${props => props.theme === 'light' 
+      ? 'rgba(255, 255, 255, 0.9)' 
+      : 'rgba(3, 7, 18, 0.9)'} 100%
+  );
   padding: 1.4rem;
-  color: #ffffff;
   z-index: 10; /* Ensure it stays above other content */
-  box-shadow: 0px 15px 15px -20px #489167;
+  box-shadow: 0px 15px 15px -20px var(--text-secondary);
 `;
 
 const NavList = styled.ul`
@@ -26,7 +31,7 @@ const NavItem = styled.li``;
 const NavLink = styled.a`
   display: inline-block;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--text-primary);
   opacity: 0.5;
   text-decoration: none;
   font-weight: bold;
@@ -40,7 +45,7 @@ const NavLink = styled.a`
 const ThemeToggle = styled.button`
   margin-left: auto;
   background-color: transparent;
-  color: #ffffff;
+  color: var(--text-primary);
   opacity: 0.5;
   border: none;
   cursor: pointer;
@@ -51,14 +56,22 @@ const ThemeToggle = styled.button`
   }
 
   &:hover {
-    color: #d3de3a;
+    color: var(--theme-toggle-color);
     opacity: 1;
   }
 `;
 
 const PageHeader = () => {
+  const [theme, setTheme] = useState('dark');
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+  };
+
   return (
-    <HeaderWrapper>
+    <HeaderWrapper theme={theme}>
       <NavList>
         <NavItem>
           <NavLink href="/">Home</NavLink>
@@ -67,8 +80,10 @@ const PageHeader = () => {
           <NavLink href="/contact">Contact</NavLink>
         </NavItem>
       </NavList>
-      <ThemeToggle>
-        <span className="material-icons">light_mode</span>
+      <ThemeToggle onClick={toggleTheme}>
+        <span className="material-icons">
+          {theme === 'light' ? 'dark_mode' : 'light_mode'}
+        </span>
       </ThemeToggle>
     </HeaderWrapper>
   );

@@ -7,33 +7,53 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #030712;
-}
-
 :root {
   --fluid-8-10: clamp(0.5rem, 0.4082rem + 0.4082vw, 0.625rem);
   --fluid-10-14: clamp(0.625rem, 0.4413rem + 0.8163vw, 0.875rem);
   --fluid-14-18: clamp(0.875rem, 0.6913rem + 0.8163vw, 1.125rem);
   --fluid-18-32: clamp(1.125rem, 0.4821rem + 2.8571vw, 2rem);
   --fluid-40-64: clamp(2.5rem, 1.398rem + 4.898vw, 4rem);
+
+  --background: #030712;
+  --inverse-background: #ffffff;
+  --background-secondary: #112323;
+  --text-primary: #ffffff;
+  --text-secondary: #489167;
+  --text-tertiary: #a1a1aa;
+  --button-hover: #0C191D;
+  --theme-toggle-color: #d3de3a;
+}
+
+:root[data-theme="light"] {
+  --background: #ffffff;
+  --inverse-background: #030712;
+  --background-secondary: #305e4f;
+  --text-primary: #222222;
+  --text-secondary: #2e9263;
+  --text-tertiary: #5b5b5c;
+  --button-hover: #1f4940;
+  --theme-toggle-color: #82418f;
+}
+
+body {
+  background-color: var(--background);
 }
 
 h1 {
   font-family: "Poetsen One", sans-serif;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: var(--fluid-40-64);
 }
 
 h2 {
   font-family: "Poetsen One", sans-serif;
-  color: #489167;
+  color: var(--text-secondary);
   font-size: var(--fluid-18-32);
 }
 
 p {
   font-family: "Noto Sans", sans-serif;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: var(--fluid-14-18);
 }
 
