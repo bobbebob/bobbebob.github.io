@@ -99,8 +99,8 @@ const Logo = styled.div`
     padding-bottom: 1rem;
 
     [data-theme="light"] & {
-    filter: invert(1);
-  }
+      filter: invert(1);
+    }
   }
 `;
 

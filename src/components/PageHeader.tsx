@@ -7,12 +7,14 @@ const HeaderWrapper = styled.div<{ theme: string }>`
   top: 0;
   max-width: 850px;
   margin: 0 auto;
-   background: linear-gradient(
-    to bottom, 
-    var(--background) 50%, 
-    ${props => props.theme === 'light' 
-      ? 'rgba(255, 255, 255, 0.9)' 
-      : 'rgba(3, 7, 18, 0.9)'} 100%
+  background: linear-gradient(
+    to bottom,
+    var(--background) 50%,
+    ${(props) =>
+        props.theme === "light"
+          ? "rgba(255, 255, 255, 0.9)"
+          : "rgba(3, 7, 18, 0.9)"}
+      100%
   );
   padding: 1.4rem;
   z-index: 10; /* Ensure it stays above other content */
@@ -62,12 +64,12 @@ const ThemeToggle = styled.button`
 `;
 
 const PageHeader = () => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState("dark");
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
   };
 
   return (
@@ -82,7 +84,7 @@ const PageHeader = () => {
       </NavList>
       <ThemeToggle onClick={toggleTheme}>
         <span className="material-icons">
-          {theme === 'light' ? 'dark_mode' : 'light_mode'}
+          {theme === "light" ? "dark_mode" : "light_mode"}
         </span>
       </ThemeToggle>
     </HeaderWrapper>

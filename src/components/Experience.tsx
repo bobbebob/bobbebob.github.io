@@ -27,7 +27,8 @@ interface NavButtonProps {
 
 const NavButton = styled.button<NavButtonProps>`
   border: none;
-  background-color: ${(props) => (props.isSelected ? "var(--background)" : "var(--background-secondary)")};
+  background-color: ${(props) =>
+    props.isSelected ? "var(--background)" : "var(--background-secondary)"};
   color: ${(props) => (props.isSelected ? "var(--text-primary)" : "#a1a1aa")};
   cursor: pointer;
   border-radius: 5px;
@@ -54,7 +55,9 @@ const ExperienceCardsContainer = styled.div`
 `;
 
 const Experience = () => {
-  const [selectedTab, setSelectedTab] = useState<EXP_NAV_TYPE>(EXP_NAV_OPTIONS.WORK);
+  const [selectedTab, setSelectedTab] = useState<EXP_NAV_TYPE>(
+    EXP_NAV_OPTIONS.WORK
+  );
 
   return (
     <ExperienceWrapper>

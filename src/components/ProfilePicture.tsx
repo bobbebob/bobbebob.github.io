@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { keyframes } from 'styled-components';
+import { keyframes } from "styled-components";
 
 interface ProfilePictureProps {
   src: string;
@@ -60,7 +60,7 @@ const Ring = styled.div<RingProps>`
 
 const Picture = styled.img`
   width: 100%;
-  height: 100%;  
+  height: 100%;
   border-radius: 50%;
   z-index: 20;
   position: absolute;
