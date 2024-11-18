@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7b529b13.css",
-    "main.js": "/static/js/main.4593d0db.js",
+    "main.js": "/static/js/main.f677dde8.js",
     "static/media/Bob.png": "/static/media/Bob.c1f812fd8323da3fc647.png",
     "static/media/BCS_logo.svg": "/static/media/BCS_logo.5b03e2767ba2070618aaaf62359de9e2.svg",
     "static/media/Createment_logo.svg": "/static/media/Createment_logo.b74224cb789992ca5984ef386e8199e3.svg",
@@ -18,10 +18,10 @@
     "index.html": "/index.html",
     "static/media/dot_bg.svg": "/static/media/dot_bg.9ef69d7e3523cc551bbd.svg",
     "main.7b529b13.css.map": "/static/css/main.7b529b13.css.map",
-    "main.4593d0db.js.map": "/static/js/main.4593d0db.js.map"
+    "main.f677dde8.js.map": "/static/js/main.f677dde8.js.map"
   },
   "entrypoints": [
     "static/css/main.7b529b13.css",
-    "static/js/main.4593d0db.js"
+    "static/js/main.f677dde8.js"
   ]
 }
