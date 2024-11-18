@@ -23,7 +23,6 @@ const Field = styled.input`
   border: 1px solid var(--text-secondary);
   border-radius: 8px;
   background-color: var(--background);
-  color: var(--text-primary);
 `;
 
 const BodyField = styled.textarea`
@@ -33,7 +32,6 @@ const BodyField = styled.textarea`
   border: 1px solid var(--text-secondary);
   border-radius: 8px;
   background-color: var(--background);
-  color: var(--text-primary);
 `;
 
 const SubmitButton = styled.button`

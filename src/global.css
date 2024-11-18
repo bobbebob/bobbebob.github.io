@@ -71,3 +71,15 @@ button {
   font-family: "Noto Sans", sans-serif;
   font-size: var(--fluid-14-18);
 }
+
+input {
+  color: var(--text-primary);
+  font-family: "Noto Sans", sans-serif;
+  font-size: var(--fluid-10-14);
+}
+
+textarea {
+  color: var(--text-primary);
+  font-family: "Noto Sans", sans-serif;
+  font-size: var(--fluid-10-14);
+}
