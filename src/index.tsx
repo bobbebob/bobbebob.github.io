@@ -6,6 +6,7 @@ import PageWrapper from "./components/PageWrapper.tsx";
 import Introduction from "./components/Introduction.tsx";
 import SectionDivider from "./components/SectionDivider.tsx";
 import Experience from "./components/Experience.tsx";
+import TechStack from "./components/TechStack.tsx";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
@@ -20,6 +21,8 @@ root.render(
       <Introduction />
       <SectionDivider/>
       <Experience />
+      <SectionDivider/>
+      <TechStack />
       <SectionDivider/>
     </PageWrapper>
   </React.StrictMode>

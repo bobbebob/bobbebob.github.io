@@ -14,6 +14,7 @@
   --fluid-18-32: clamp(1.125rem, 0.4821rem + 2.8571vw, 2rem);
   --fluid-40-64: clamp(2.5rem, 1.398rem + 4.898vw, 4rem);
 
+  --page-background: #030712;
   --background: #030712;
   --inverse-background: #ffffff;
   --background-secondary: #112323;
@@ -25,6 +26,7 @@
 }
 
 :root[data-theme="light"] {
+  --page-background: url("../src/assets/dot_bg.svg");
   --background: #ffffff;
   --inverse-background: #030712;
   --background-secondary: #305e4f;
@@ -33,10 +35,13 @@
   --text-tertiary: #5b5b5c;
   --button-hover: #1f4940;
   --theme-toggle-color: #82418f;
+
+  background-image: var(--page-background);
+  background-repeat: repeat;
 }
 
 body {
-  background-color: var(--background);
+  background-color: var(--page-background);
 }
 
 h1 {

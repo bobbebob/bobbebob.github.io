@@ -41,6 +41,11 @@ const Position = styled.p`
     color: var(--text-primary);
     font-size: var(--fluid-14-18);
   }
+
+  @media (min-width: 768px) {
+    max-width: 60ch;
+  }
+
 `;
 
 const WorkExperienceList = styled.ul`

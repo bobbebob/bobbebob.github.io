@@ -47,8 +47,6 @@ export const workExperience: WorkExperience[] = [
       "Conducted 30+ MIC security checks in 5+ SAP production environments to verify critical security parameters",
       "Automated a MIC check with a custom VBA script, improving efficiency in routine security tasks",
       "Designed task and business roles, including a role design for a new customer in collaboration with a teammate",
-      "Configured roles for SAP Fiori and SAP BTP, establishing secure role connections",
-      "Illustrated complex issues for team meetings, aiding visual understanding of security challenges",
       "Trained customer users on compliance protocols and ticketing processes to reinforce internal standards",
     ],
     logo: simacLogo,

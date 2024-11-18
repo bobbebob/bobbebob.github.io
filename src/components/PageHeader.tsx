@@ -16,7 +16,7 @@ const HeaderWrapper = styled.div<{ theme: string }>`
           : "rgba(3, 7, 18, 0.9)"}
       100%
   );
-  padding: 1.4rem;
+  padding: 1.4rem 2.6rem;
   z-index: 10; /* Ensure it stays above other content */
   box-shadow: 0px 15px 15px -20px var(--text-secondary);
 `;
