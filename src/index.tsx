@@ -7,6 +7,7 @@ import Introduction from "./components/Introduction.tsx";
 import SectionDivider from "./components/SectionDivider.tsx";
 import Experience from "./components/Experience.tsx";
 import TechStack from "./components/TechStack.tsx";
+import PageFooter from "./components/PageFooter.tsx";
 
 const rootElement = document.getElementById("root");
 if (!rootElement) {
@@ -23,7 +24,7 @@ root.render(
       <Experience />
       <SectionDivider/>
       <TechStack />
-      <SectionDivider/>
+      <PageFooter />
     </PageWrapper>
   </React.StrictMode>
 );
