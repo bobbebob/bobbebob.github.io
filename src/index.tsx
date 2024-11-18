@@ -24,7 +24,7 @@ root.render(
       <Experience />
       <SectionDivider/>
       <TechStack />
-      <PageFooter />
     </PageWrapper>
+    <PageFooter />
   </React.StrictMode>
 );
