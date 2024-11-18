@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderWrapper = styled.div<{ theme: string }>`
@@ -6,7 +7,7 @@ const HeaderWrapper = styled.div<{ theme: string }>`
   position: sticky;
   top: 0;
   max-width: 850px;
-  margin: 0 auto;
+  margin: 0;
   background: linear-gradient(
     to bottom,
     var(--background) 50%,
@@ -30,7 +31,7 @@ const NavList = styled.ul`
 
 const NavItem = styled.li``;
 
-const NavLink = styled.a`
+const NavLink = styled(Link)`
   display: inline-block;
   text-transform: uppercase;
   color: var(--text-primary);
@@ -76,10 +77,10 @@ const PageHeader = () => {
     <HeaderWrapper theme={theme}>
       <NavList>
         <NavItem>
-          <NavLink href="/">Home</NavLink>
+          <NavLink to="/">Home</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="/contact">Contact</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
         </NavItem>
       </NavList>
       <ThemeToggle onClick={toggleTheme}>

@@ -7,18 +7,19 @@ import SocialsIcon from "./SocialsIcon.tsx";
 
 const FooterWrapper = styled.div<{ theme: string }>`
   display: flex;
+  margin: 0;
   max-width: 850px;
-  margin: 0 auto;
   justify-content: space-between;
   align-items: center;
   background: var(--background);
-  padding: 2rem 2.6rem 3.2rem 2.6rem;
+  padding: 2rem 2.6rem 2.4rem 2.6rem;
   z-index: 10; /* Ensure it stays above other content */
   box-shadow: 0px -15px 15px -20px var(--text-secondary);
 
   p {
     color: var(--text-tertiary);
     font-size: var(--fluid-8-10);
+    margin: 0;
   }
 `;
 

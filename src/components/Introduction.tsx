@@ -20,7 +20,7 @@ const TitleContainer = styled.div`
 `;
 
 const TextContainer = styled.div`
-  margin-top: 1vh;
+  margin-top: 3.5rem;
 
   p {
     margin-bottom: 1rem;
@@ -35,6 +35,11 @@ const TextContainer = styled.div`
     cursor: pointer;
     text-decoration: none;
   }
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+  }
+
 `;
 
 const TextDivider = styled.div`

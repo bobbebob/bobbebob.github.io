@@ -1,4 +1,3 @@
-import React from "react";
 import HTML_logo from "../assets/HTML_logo.svg";
 import CSS_logo from "../assets/CSS_logo.svg";
 import TS_logo from "../assets/Typescript_logo.svg";
