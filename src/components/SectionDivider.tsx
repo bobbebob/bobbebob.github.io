@@ -11,6 +11,7 @@ const Divider = styled.div`
     transparent
   );
   margin-bottom: 2rem;
+  align-self: center;
 `;
 
 const SectionDivider = () => {
