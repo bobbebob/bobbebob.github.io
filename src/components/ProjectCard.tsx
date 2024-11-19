@@ -67,7 +67,6 @@ const ProjectInfo = styled.div`
   justify-content: center;
   gap: 0.2rem;
   box-shadow: inset 0px 15px 15px -15px var(--text-secondary);
-  min-height: 6rem;
 `;
 
 const ProjectTitle = styled.p`
@@ -107,7 +106,7 @@ const ShowMoreButton = styled.button`
 
 const ProjectImage = styled.img<{ $expanded: boolean }>`
   width: 100%;
-  height: ${({ $expanded }) => ($expanded ? "0%" : "100%")};
+  height: ${({ $expanded }) => ($expanded ? "0%" : "65%")};
   object-fit: cover;
   object-position: center;
   transform-origin: center center;
