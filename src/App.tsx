@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./global.css";
 import HomePage from "./pages/Home.tsx";
@@ -17,6 +17,21 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
+  useEffect(() => {
+    console.log(`
+( Hello! )
+ \\      
+w  c(..)o   (
+ \\__(-)    __)
+     /\\   (
+    /(_)___)
+    w /|
+     | \\
+     m  m
+Curious about my website? Check out the source code on GitHub: https://github.com/bobbebob/bobbebob.github.io
+`);
+}, []);
+
   return (
     <Router>
       <AppContainer>

@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { API_KEY } from "../constants.ts";
 
 const PageTitle = styled.div`
   margin-bottom: 3.5rem;
   margin-top: 1rem;
+
+  p {
+    margin-top: 1rem;
+  }
 `;
 
-const FormContainer = styled.div`
+const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  margin-bottom: 3rem;
 `;
 
 const TopFields = styled.div`
@@ -54,21 +60,53 @@ const SubmitButton = styled.button`
 `;
 
 const ContactPage = () => {
+  const [result, setResult] = useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", API_KEY);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully 🎉");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
   return (
     <>
       <PageTitle>
         <h1>Contact me</h1>
-        <h2>
-          I <s>won't</s> bite
-        </h2>
+        <h2>Say hi, if you'd like</h2>
+        {result ? <p>{result}</p> : <></>}
       </PageTitle>
-      <FormContainer>
+      <FormContainer onSubmit={onSubmit}>
         <TopFields>
-          <Field type="text" placeholder="Name" />
-          <Field type="email" placeholder="Email@address.com" />
+          <Field type="text" name="name" placeholder="Name" required />
+          <Field
+            type="email"
+            name="email"
+            placeholder="Email@address.com"
+            required
+          />
         </TopFields>
-        <BodyField placeholder="Hello Bob, I'd like to contact you!" />
-        <SubmitButton>
+        <BodyField
+          name="message"
+          placeholder="Hello Bob, have you heard about..."
+          required
+        />
+        <SubmitButton type="submit">
           <p>Send</p>
           <span className="material-icons">send</span>
         </SubmitButton>

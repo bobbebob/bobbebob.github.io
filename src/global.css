@@ -72,6 +72,10 @@ button {
   font-size: var(--fluid-14-18);
 }
 
+button:active {
+  background-color: transparent;
+}
+
 input {
   color: var(--text-primary);
   font-family: "Noto Sans", sans-serif;
@@ -82,4 +86,18 @@ textarea {
   color: var(--text-primary);
   font-family: "Noto Sans", sans-serif;
   font-size: var(--fluid-10-14);
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 10px 0px var(--text-secondary);
+}
+
+button,
+a,
+input,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  box-shadow: none;
 }
