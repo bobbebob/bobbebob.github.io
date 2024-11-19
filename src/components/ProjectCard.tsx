@@ -46,7 +46,7 @@ const ProjectCardContainer = styled.div`
   border-radius: 10px;
   padding: 0.6rem;
   width: 100%;
-  max-height: 40vh;
+  aspect-ratio: 1 / 1;
 `;
 
 const ContentContainer = styled.div`
@@ -67,6 +67,7 @@ const ProjectInfo = styled.div`
   justify-content: center;
   gap: 0.2rem;
   box-shadow: inset 0px 15px 15px -15px var(--text-secondary);
+  min-height: 6rem;
 `;
 
 const ProjectTitle = styled.p`
@@ -122,12 +123,12 @@ const ProjectImage = styled.img<{ $expanded: boolean }>`
 const ProjectDetails = styled.ul<{ $expanded: boolean }>`
   margin-top: auto;
   list-style-type: none;
-  
-  ${({ $expanded }) => 
-    $expanded && css`
+
+  ${({ $expanded }) =>
+    $expanded &&
+    css`
       animation: ${slideIn} 0.5s ease-out forwards;
-    `
-  };
+    `};
 
   p {
     font-size: var(--fluid-10-14);
