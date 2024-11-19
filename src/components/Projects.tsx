@@ -8,12 +8,9 @@ const ProjectCardGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   gap: 0.6rem;
-  width: 60%;
-  align-self: center;
 
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    width: 100%;
   }
 `;
 
