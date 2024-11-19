@@ -45,7 +45,8 @@ const ProjectCardContainer = styled.div`
   background-color: var(--background-secondary);
   border-radius: 10px;
   padding: 0.6rem;
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-height: 40vh;
 `;
 
 const ContentContainer = styled.div`
