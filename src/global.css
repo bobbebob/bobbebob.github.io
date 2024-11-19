@@ -80,12 +80,14 @@ input {
   color: var(--text-primary);
   font-family: "Noto Sans", sans-serif;
   font-size: var(--fluid-10-14);
+  transition: box-shadow 0.3s ease-out;
 }
 
 textarea {
   color: var(--text-primary);
   font-family: "Noto Sans", sans-serif;
   font-size: var(--fluid-10-14);
+  transition: box-shadow 0.3s ease-out;
 }
 
 input:focus,

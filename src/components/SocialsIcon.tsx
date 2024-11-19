@@ -20,10 +20,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 15px 0px var(--text-secondary);
-  transition: all 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-out;
 
   &:hover {
-    transform: scale(1.1) rotate(-8deg);
     box-shadow: 0 0 15px 0px var(--inverse-background);
   }
 `;

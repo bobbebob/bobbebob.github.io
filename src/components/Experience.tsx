@@ -4,13 +4,7 @@ import { EXP_NAV_OPTIONS, EXP_NAV_TYPE } from "../constants.ts";
 import ExperienceCard from "./ExperienceCard.tsx";
 import { workExperience } from "../data/workExperience.tsx";
 import { education } from "../data/education.tsx";
-
-const ExperienceWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-bottom: 3rem;
-`;
+import SectionWrapper from "./SectionWrapper.tsx";
 
 const ExperienceNavBar = styled.div`
   display: grid;
@@ -34,7 +28,7 @@ const NavButton = styled.button<NavButtonProps>`
   border-radius: 5px;
   padding: 0.6rem;
   transition: background-color 0.3s;
-
+  
   ${(props) =>
     !props.isSelected &&
     `
@@ -60,7 +54,7 @@ const Experience = () => {
   );
 
   return (
-    <ExperienceWrapper>
+    <SectionWrapper>
       <h2>Experience</h2>
       <ExperienceNavBar>
         <NavButton
@@ -86,7 +80,7 @@ const Experience = () => {
             <ExperienceCard key={index} studies={study} />
           ))}
       </ExperienceCardsContainer>
-    </ExperienceWrapper>
+    </SectionWrapper>
   );
 };
 

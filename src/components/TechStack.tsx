@@ -1,13 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { technologies } from "../data/technologies.tsx";
-
-const TechStackWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  margin-bottom: 3rem;
-`;
+import SectionWrapper from "./SectionWrapper.tsx";
 
 const TechStackCardContainer = styled.div`
   display: grid;
@@ -57,7 +51,7 @@ const TechStackCard = styled.div`
 
 const TechStack = () => {
   return (
-    <TechStackWrapper>
+    <SectionWrapper>
       <h2>My current technologies</h2>
       <TechStackCardContainer>
         {technologies.map((tech, index) => (
@@ -72,7 +66,7 @@ const TechStack = () => {
           </TechStackCard>
         ))}
       </TechStackCardContainer>
-    </TechStackWrapper>
+    </SectionWrapper>
   );
 };
 
