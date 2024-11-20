@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "./global.css";
 import HomePage from "./pages/Home.tsx";
 import PageHeader from "./components/PageHeader.tsx";
