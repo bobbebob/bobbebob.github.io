@@ -40,8 +40,10 @@ const NavLink = styled(Link)`
   font-weight: bold;
   transition: opacity 0.3s ease;
 
-  &:hover {
-    opacity: 1;
+  @media (hover: hover) {
+    &:hover {
+      opacity: 1;
+    }
   }
 `;
 
@@ -58,9 +60,11 @@ const ThemeToggle = styled.button`
     font-size: 1rem;
   }
 
-  &:hover {
-    color: var(--theme-toggle-color);
-    opacity: 1;
+  @media (hover: hover) {
+    &:hover {
+      color: var(--theme-toggle-color);
+      opacity: 1;
+    }
   }
 `;
 

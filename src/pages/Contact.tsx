@@ -59,6 +59,12 @@ const SubmitButton = styled.button`
   }
 `;
 
+const Honeypot = styled.input`
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+`;
+
 const ContactPage = () => {
   const [result, setResult] = useState("");
 
@@ -105,6 +111,13 @@ const ContactPage = () => {
           name="message"
           placeholder="Hello Bob, have you heard about..."
           required
+        />
+        <Honeypot
+          type="checkbox"
+          name="botcheck"
+          id="botcheck"
+          tabIndex={-1}
+          autoComplete="off"
         />
         <SubmitButton type="submit">
           <p>Send</p>

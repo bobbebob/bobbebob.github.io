@@ -22,8 +22,10 @@ const Container = styled.div`
   box-shadow: 0 0 15px 0px var(--text-secondary);
   transition: box-shadow 0.2s ease-out;
 
-  &:hover {
-    box-shadow: 0 0 15px 0px var(--inverse-background);
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 0 15px 0px var(--inverse-background);
+    }
   }
 `;
 

@@ -15,27 +15,24 @@ const ExperienceNavBar = styled.div`
   width: 100%;
 `;
 
-interface NavButtonProps {
-  isSelected: boolean;
-}
-
-const NavButton = styled.button<NavButtonProps>`
+const NavButton = styled.button<{ $isSelected: boolean }>`
   border: none;
   background-color: ${(props) =>
-    props.isSelected ? "var(--background)" : "var(--background-secondary)"};
-  color: ${(props) => (props.isSelected ? "var(--text-primary)" : "#a1a1aa")};
+    props.$isSelected ? "var(--background)" : "var(--background-secondary)"};
+  color: ${(props) => (props.$isSelected ? "var(--text-primary)" : "#a1a1aa")};
   cursor: pointer;
   border-radius: 5px;
   padding: 0.6rem;
   transition: background-color 0.3s;
-  
-  ${(props) =>
-    !props.isSelected &&
-    `
-      &:hover {
-        background-color: var(--button-hover);
-      }
-    `}
+  @media (hover: hover) {
+    ${(props) =>
+      !props.$isSelected &&
+      `
+        &:hover {
+          background-color: var(--button-hover);
+        }
+      `}
+  }
 `;
 
 const ExperienceCardsContainer = styled.div`
@@ -58,13 +55,13 @@ const Experience = () => {
       <h2>Experience</h2>
       <ExperienceNavBar>
         <NavButton
-          isSelected={selectedTab === EXP_NAV_OPTIONS.WORK}
+          $isSelected={selectedTab === EXP_NAV_OPTIONS.WORK}
           onClick={() => setSelectedTab(EXP_NAV_OPTIONS.WORK)}
         >
           Work
         </NavButton>
         <NavButton
-          isSelected={selectedTab === EXP_NAV_OPTIONS.EDUCATION}
+          $isSelected={selectedTab === EXP_NAV_OPTIONS.EDUCATION}
           onClick={() => setSelectedTab(EXP_NAV_OPTIONS.EDUCATION)}
         >
           Education

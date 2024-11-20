@@ -30,7 +30,11 @@ export const education: Education[] = [
       "Got hands on experience programming in Java, HTML, CSS and JavaScript",
       <>
         Recieved my{" "}
-        <a href="https://www.credly.com/badges/ac755ff7-ec92-4ce6-ae1f-57912f3e7fbf/public_url">
+        <a
+          href="https://www.credly.com/badges/ac755ff7-ec92-4ce6-ae1f-57912f3e7fbf/public_url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           scrum master certification
         </a>
       </>,

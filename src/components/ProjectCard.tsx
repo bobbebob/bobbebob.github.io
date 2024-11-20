@@ -99,8 +99,10 @@ const ShowMoreButton = styled.button`
     font-size: var(--fluid-14-18);
   }
 
-  &:hover span {
-    animation: ${bounce} 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+  @media (hover: hover) {
+    &:hover span {
+      animation: ${bounce} 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+    }
   }
 `;
 
