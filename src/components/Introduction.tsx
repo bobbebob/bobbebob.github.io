@@ -74,7 +74,7 @@ const Introduction = () => {
         </p>
         <TextDivider />
         <p>
-          Download my <a href="/resume.pdf">resume</a>
+          Download my <a href="/resume.pdf" download="bob-vegter-resume.pdf">resume</a>
         </p>
         <TextDivider />
         <SocialIconsContainer>
