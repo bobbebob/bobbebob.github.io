@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { API_KEY } from "../constants.ts";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { formSparkFormId, hCaptchaSiteKey } from "../constants.ts";
 
 const PageTitle = styled.div`
   margin-bottom: 3.5rem;
@@ -67,37 +68,56 @@ const Honeypot = styled.input`
 
 const ContactPage = () => {
   const [result, setResult] = useState("");
+  const captchaRef = useRef<HCaptcha>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setResult("Sending....");
-    const formData = new FormData(event.target);
-
-    formData.append("access_key", API_KEY);
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setResult("Form Submitted Successfully 🎉");
-      event.target.reset();
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
+    if (captchaRef.current) {
+      captchaRef.current.execute();
     }
   };
+
+  const onVerifyCaptcha = (token: string) => {
+    submitForm(token);
+  };
+
+  const submitForm = async (token: string) => {
+    // Null check for formRef
+    if (formRef.current) {
+      const formData = new FormData(formRef.current);
+      formData.append("h-captcha-response", token);
+
+      try {
+        setResult("Sending form...");
+        const response = await fetch(
+          `https://submit.formspark.io/f/${formSparkFormId}`,
+          {
+            method: "POST",
+            body: formData,
+          }
+        );
+
+        if (response.ok) {
+          setResult("Form Submitted Successfully 🎉");
+          formRef.current.reset();
+        } else {
+          setResult("Submission failed. Please try again.");
+        }
+      } catch (error) {
+        setResult("An error occurred. Please try again.");
+      }
+    }
+  };
+
   return (
     <>
       <PageTitle>
         <h1>Contact me</h1>
         <h2>Say hi, if you'd like</h2>
-        {result ? <p>{result}</p> : <></>}
+        {result && <p>{result}</p>}
       </PageTitle>
-      <FormContainer onSubmit={onSubmit}>
+      <FormContainer ref={formRef} onSubmit={onSubmit}>
         <TopFields>
           <Field type="text" name="name" placeholder="Name" required />
           <Field
@@ -114,10 +134,15 @@ const ContactPage = () => {
         />
         <Honeypot
           type="checkbox"
-          name="botcheck"
-          id="botcheck"
+          name="_honeypot"
           tabIndex={-1}
           autoComplete="off"
+        />
+        <HCaptcha
+          ref={captchaRef}
+          sitekey={hCaptchaSiteKey}
+          onVerify={onVerifyCaptcha}
+          size="invisible"
         />
         <SubmitButton type="submit">
           <p>Send</p>

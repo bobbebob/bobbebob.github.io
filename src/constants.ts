@@ -6,4 +6,5 @@ export const EXP_NAV_OPTIONS = {
 export type EXP_NAV_TYPE =
   (typeof EXP_NAV_OPTIONS)[keyof typeof EXP_NAV_OPTIONS];
 
-export const API_KEY = "6655c3ef-0359-4c86-93ea-2ebfd37a0fbe";
+export const hCaptchaSiteKey = "6c7b6d9c-0c2c-4a9c-9c2d-4c9c2d4c9c2d";
+export const formSparkFormId = "dmODIpTiR";
