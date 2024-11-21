@@ -82,6 +82,10 @@ const ContactPage = () => {
     submitForm(token);
   };
 
+  const onCaptchaExpire = () => {
+    setResult("Captcha expired. Please try again.");
+  };
+
   const submitForm = async (token: string) => {
     // Null check for formRef
     if (formRef.current) {
@@ -101,6 +105,7 @@ const ContactPage = () => {
         if (response.ok) {
           setResult("Form Submitted Successfully 🎉");
           formRef.current.reset();
+          captchaRef.current?.resetCaptcha(); 
         } else {
           setResult("Submission failed. Please try again.");
         }
@@ -138,16 +143,17 @@ const ContactPage = () => {
           tabIndex={-1}
           autoComplete="off"
         />
-        <HCaptcha
-          ref={captchaRef}
-          sitekey={hCaptchaSiteKey}
-          onVerify={onVerifyCaptcha}
-          size="invisible"
-        />
         <SubmitButton type="submit">
           <p>Send</p>
           <span className="material-icons">send</span>
         </SubmitButton>
+        <HCaptcha
+          ref={captchaRef}
+          sitekey={hCaptchaSiteKey}
+          onVerify={onVerifyCaptcha}
+          onExpire={onCaptchaExpire}
+          size="invisible"
+        />
       </FormContainer>
     </>
   );
