@@ -103,7 +103,7 @@ const ContactPage = () => {
         />
         <Honeypot
           type="checkbox"
-          name="_honeypot"
+          name="botcheck"
           tabIndex={-1}
           autoComplete="off"
         />
