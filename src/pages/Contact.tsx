@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { formSparkFormId, hCaptchaSiteKey } from "../constants.ts";
@@ -66,52 +66,103 @@ const Honeypot = styled.input`
   z-index: -1;
 `;
 
-const ContactPage = () => {
-  const [result, setResult] = useState("");
-  const captchaRef = useRef<HCaptcha>(null);
-  const formRef = useRef<HTMLFormElement>(null);
+const CaptchaContainer = styled.div`
+  margin-left: auto;
+  iframe {
+    border: 1px solid var(--text-secondary);
+    border-radius: 8px;
+  }
+`;
 
-  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    if (captchaRef.current) {
-      captchaRef.current.execute();
-    }
+const ContactPage = () => {
+  const initialForm = {
+    name: "",
+    email: "",
+    message: "",
   };
 
+  const [result, setResult] = useState<string>("");
+  const [form, setForm] = useState(initialForm);
+  const [token, setToken] = useState<string | null>(null);
+  const captchaRef = useRef<HCaptcha>(null);
+  const [theme, setTheme] = useState<string>("dark");
+
+  const { name, email, message } = form;
+
+  useEffect(() => {
+    const updateTheme = () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      setTheme(currentTheme === "light" ? "light" : "dark");
+    };
+
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const onVerifyCaptcha = (token: string) => {
-    submitForm(token);
+    setToken(token);
   };
 
   const onCaptchaExpire = () => {
+    setToken(null);
     setResult("Captcha expired. Please try again.");
   };
 
-  const submitForm = async (token: string) => {
-    // Null check for formRef
-    if (formRef.current) {
-      const formData = new FormData(formRef.current);
-      formData.append("h-captcha-response", token);
+  const changeFormValue = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
 
-      try {
-        setResult("Sending form...");
-        const response = await fetch(
-          `https://submit.formspark.io/f/${formSparkFormId}`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Verify captcha token before submission
+    if (!token) {
+      setResult("Please complete the captcha.");
+      captchaRef.current?.execute();
+      return;
+    }
 
-        if (response.ok) {
-          setResult("Form Submitted Successfully 🎉");
-          formRef.current.reset();
-          captchaRef.current?.resetCaptcha(); 
-        } else {
-          setResult("Submission failed. Please try again.");
+    setResult("Sending...");
+    try {
+      const response = await fetch(
+        `https://submit-form.com/${formSparkFormId}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            "h-captcha-response": token,
+          }),
         }
-      } catch (error) {
-        setResult("An error occurred. Please try again.");
+      );
+
+      if (response.ok) {
+        setResult("Form submitted!");
+        // Reset form and captcha
+        setForm(initialForm);
+        setToken(null);
+        captchaRef.current?.resetCaptcha();
+      } else {
+        setResult("Error submitting form. Please try again.");
       }
+    } catch (error) {
+      setResult("Error submitting form. Please try again.");
+      console.error("Form submission error:", error);
     }
   };
 
@@ -122,19 +173,30 @@ const ContactPage = () => {
         <h2>Say hi, if you'd like</h2>
         {result && <p>{result}</p>}
       </PageTitle>
-      <FormContainer ref={formRef} onSubmit={onSubmit}>
+      <FormContainer onSubmit={onSubmit}>
         <TopFields>
-          <Field type="text" name="name" placeholder="Name" required />
+          <Field
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={name}
+            onChange={changeFormValue}
+            required
+          />
           <Field
             type="email"
             name="email"
             placeholder="Email@address.com"
+            value={email}
+            onChange={changeFormValue}
             required
           />
         </TopFields>
         <BodyField
           name="message"
           placeholder="Hello Bob, have you heard about..."
+          value={message}
+          onChange={changeFormValue}
           required
         />
         <Honeypot
@@ -143,17 +205,19 @@ const ContactPage = () => {
           tabIndex={-1}
           autoComplete="off"
         />
+        <CaptchaContainer>
+          <HCaptcha
+            ref={captchaRef}
+            sitekey={hCaptchaSiteKey}
+            onVerify={onVerifyCaptcha}
+            onExpire={onCaptchaExpire}
+            theme={theme}
+          />
+        </CaptchaContainer>
         <SubmitButton type="submit">
           <p>Send</p>
           <span className="material-icons">send</span>
         </SubmitButton>
-        <HCaptcha
-          ref={captchaRef}
-          sitekey={hCaptchaSiteKey}
-          onVerify={onVerifyCaptcha}
-          onExpire={onCaptchaExpire}
-          size="invisible"
-        />
       </FormContainer>
     </>
   );
