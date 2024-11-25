@@ -51,6 +51,7 @@ export const projects: ProjectType[] = [
           Basket Charm
         </a>
       </>,
+      "Written in C#",
       <>
         Art inspired by:{" "}
         <a
