@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.bf6e950e.css",
-    "main.js": "/static/js/main.39c9c55b.js",
+    "main.js": "/static/js/main.1905be93.js",
     "static/media/Monkey_beaches.png": "/static/media/Monkey_beaches.fc6416c96d944e9630ae.png",
     "static/media/Wildfrost.png": "/static/media/Wildfrost.925299912ee9ef81616e.png",
     "static/media/more_projects.svg": "/static/media/more_projects.67a652afe45b6c5506a26771ee478d4f.svg",
@@ -16,16 +16,17 @@
     "static/media/CSS_logo.svg": "/static/media/CSS_logo.e302f1ddb1b4afb6735f46abc09f80e9.svg",
     "static/media/HTML_logo.svg": "/static/media/HTML_logo.a9bc03f3d3809843ec0441bbca30633d.svg",
     "static/media/Typescript_logo.svg": "/static/media/Typescript_logo.612c54eaa8090635054c5efddf5f69d6.svg",
+    "static/media/CoderDojo_logo.svg": "/static/media/CoderDojo_logo.7e1f1827eaf9be21eff12dcc1303175b.svg",
     "static/media/MongoDB_logo.svg": "/static/media/MongoDB_logo.15735f95b877372e74a2e557cb7bfe91.svg",
     "static/media/github.svg": "/static/media/github.a79d1ce5332ccddc768d842137e2bf67.svg",
     "static/media/linkedIn.svg": "/static/media/linkedIn.fe2b1ff1775173d887fbcf9f40deb49d.svg",
     "index.html": "/index.html",
     "static/media/dot_bg.svg": "/static/media/dot_bg.9ef69d7e3523cc551bbd.svg",
     "main.bf6e950e.css.map": "/static/css/main.bf6e950e.css.map",
-    "main.39c9c55b.js.map": "/static/js/main.39c9c55b.js.map"
+    "main.1905be93.js.map": "/static/js/main.1905be93.js.map"
   },
   "entrypoints": [
     "static/css/main.bf6e950e.css",
-    "static/js/main.39c9c55b.js"
+    "static/js/main.1905be93.js"
   ]
 }
